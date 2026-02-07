@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+
+id = "b_onion_skin"
+name = "B Onion Skin"
+version = "1.0.0"
+type = "add-on"
+tagline = "Onion skinning for 3D animation"
+tags = ["Animation"]
+maintainer = "Dinesh007"
+blender_version_min = "5.0.0"
+license = ["SPDX:GPL-3.0-or-later"]
+
+
+
