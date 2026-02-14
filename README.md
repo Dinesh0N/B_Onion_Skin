@@ -16,7 +16,6 @@ Display ghost frames of your animated meshes directly in the viewport to visuali
 - **Adjustable Opacity** — Smooth falloff so distant frames fade naturally
 - **Wireframe Mode** — Lightweight display for complex meshes
 - **X-Ray** — See ghosts through geometry
-- **Smart Caching** — Pre-bake frames for smooth playback
 
 ## Usage
 
@@ -25,29 +24,7 @@ Display ghost frames of your animated meshes directly in the viewport to visuali
 3. Enable onion skinning with the checkbox in the panel header
 4. Adjust frame count, colors, and opacity to your preference
 
-## Settings
 
-**Objects**
-- Add mesh or armature objects to display onion skins
-- Armature children are automatically included
-
-**Frame Range**
-- Set how many frames before and after to display
-- Adjust frame step for faster animations
-- Limit display to a specific frame range
-
-**Appearance**
-- Custom colors for before/after ghosts
-- Opacity falloff with linear, smooth, or exponential curves
-- X-Ray, wireframe, and mesh-in-front options
-
-**Cache**
-- Bake all frames for instant playback
-- Clear or rebake as needed
-
-## Requirements
-
-- Blender 5.0
 
 ## License
 
