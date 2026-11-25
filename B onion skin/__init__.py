@@ -1,50 +1,42 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Blender 5.0 Onion Skin Addon
-# Realtime 3D animation onion skinning with smart caching
+"""B Onion Skin — GPU onion skinning for 3D animation."""
 
 bl_info = {
-    "name": "B onion skin",
+    "name": "B Onion Skin",
     "author": "Dinesh007",
-    "version": (1, 0, 0),
-    "blender": (5, 0, 0),
+    "version": (1, 2, 0),
+    "blender": (5, 2, 0),
     "location": "View3D > Sidebar > Onion Skin",
-    "description": "Realtime onion skinning for 3D animation",
-    "doc_url": "",
+    "description": "GPU onion skinning for 3D animation",
     "category": "Animation",
 }
 
-# -----------------------------------------------------------------------------
-# Module Imports
-# -----------------------------------------------------------------------------
-
 from . import cache
-from . import async_cache
 from . import properties
 from . import operators
 from . import ui
 from . import drawing
-from . import handlers
+from .c_core import core_bridge as cb
 
-
-# -----------------------------------------------------------------------------
-# Registration
-# -----------------------------------------------------------------------------
 
 def register():
     properties.register()
     operators.register()
     ui.register()
     drawing.register()
-    handlers.register()
+
+    cb.ensure_initialized()
+    if cb.is_available():
+        print("[B Onion Skin] High-performance C++ backend loaded with hardware SIMD and GPU acceleration!")
+    else:
+        print("[B Onion Skin] Running in fallback Python mode (C++ core library not loaded).")
 
 
 def unregister():
-    handlers.unregister()
     drawing.unregister()
     ui.unregister()
     operators.unregister()
     properties.unregister()
-    async_cache.cleanup()
     cache.cleanup()
 
 
